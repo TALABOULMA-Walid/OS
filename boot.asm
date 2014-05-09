@@ -21,17 +21,17 @@ times 0Bh-$+start db 0
 bpbBytesPerSector:  	DW 512
 bpbSectorsPerCluster: 	DB 1
 bpbReservedSectors: 	DW 1
-bpbNumberOfFATs: 	DB 2
-bpbRootEntries: 	DW 224
-bpbTotalSectors: 	DW 2880
-bpbMedia: 	        DB 0xF0
-bpbSectorsPerFAT: 	DW 9
+bpbNumberOfFATs: 		DB 2
+bpbRootEntries: 		DW 224
+bpbTotalSectors: 		DW 2880
+bpbMedia: 	        	DB 0xF0
+bpbSectorsPerFAT: 		DW 9
 bpbSectorsPerTrack: 	DW 18
 bpbHeadsPerCylinder: 	DW 2
-bpbHiddenSectors: 	DD 0
+bpbHiddenSectors: 		DD 0
 bpbTotalSectorsBig:     DD 0
 bsDriveNumber: 	        DB 0
-bsUnused: 	        DB 0
+bsUnused: 	        	DB 0
 bsExtBootSignature: 	DB 0x29
 bsSerialNumber:	        DD 0xa0a1a2a3
 bsVolumeLabel: 	        DB "MOS FLOPPY "
@@ -40,12 +40,12 @@ bsFileSystem: 	        DB "FAT12   "
 ;	Prints a string
 ;	DS=>SI: 0 terminated string
 ;***************************************
-msg	db	"Welcome to My Operating System Bitch!", 0
+msg	db	"Bitch, Welcome to My Operating System !",0
 
 Print:
 			lodsb
-			or			al, al				; al=current character
-			jz			PrintDone			; null terminator found
+			or			al, al			; al=current character
+			jz			PrintDone		; null terminator found
 			mov			ah,	0eh			; get next character
 			int			10h
 			jmp			Print

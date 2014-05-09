@@ -1,5 +1,2 @@
 #!/bin/bash
-rm *~ ;
-nasm -f bin boot.asm -o boot.bin ;
-dd if=boot.asm of=boot.bin bs=512 count=1 ;
-bochs;
+rm -f *~ && nasm -f bin boot.asm -o boot.bin && dd if=boot.bin of=floppy.img bs=512 count=1 && bochs		
